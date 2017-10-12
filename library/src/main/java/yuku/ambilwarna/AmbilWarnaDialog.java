@@ -73,6 +73,10 @@ public class AmbilWarnaDialog {
 		viewCursor = (ImageView) view.findViewById(R.id.ambilwarna_cursor);
 		viewOldColor = view.findViewById(R.id.ambilwarna_oldColor);
 		viewNewColor = view.findViewById(R.id.ambilwarna_newColor);
+		viewLastColor1 = view.findViewById(R.id.lastcolor1);
+        viewLastColor2 = view.findViewById(R.id.lastcolor2);
+        viewLastColor3 = view.findViewById(R.id.lastcolor3);
+        viewLastColor4 = view.findViewById(R.id.lastcolor4);
 		viewTarget = (ImageView) view.findViewById(R.id.ambilwarna_target);
 		viewContainer = (ViewGroup) view.findViewById(R.id.ambilwarna_viewContainer);
 		viewAlphaOverlay = view.findViewById(R.id.ambilwarna_overlay);
@@ -88,6 +92,46 @@ public class AmbilWarnaDialog {
 		viewSatVal.setHue(getHue());
 		viewOldColor.setBackgroundColor(color);
 		viewNewColor.setBackgroundColor(color);
+		
+		  setRecentColors(context);
+	        
+	        viewLastColor1.setOnClickListener(new View.OnClickListener() {          
+	            @Override
+	            public void onClick(View view) {
+	                if (AmbilWarnaDialog.this.listener != null) {
+	                    AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, context.getSharedPreferences("LastColors", 0).getInt("lastcolor1", Color.BLACK), false);
+	                    dialog.dismiss();
+	                }
+	            }
+	        });
+	        viewLastColor2.setOnClickListener(new View.OnClickListener() {          
+	            @Override
+	            public void onClick(View view) {
+	                if (AmbilWarnaDialog.this.listener != null) {
+	                    AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, context.getSharedPreferences("LastColors", 0).getInt("lastcolor2", Color.BLACK), false);
+	                    dialog.dismiss();
+	                }
+	            }
+	        });
+	        viewLastColor3.setOnClickListener(new View.OnClickListener() {          
+	            @Override
+	            public void onClick(View view) {
+	                if (AmbilWarnaDialog.this.listener != null) {
+	                    AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, context.getSharedPreferences("LastColors", 0).getInt("lastcolor3", Color.BLACK), false);
+	                    dialog.dismiss();
+	                }
+	            }
+	        });
+	        viewLastColor4.setOnClickListener(new View.OnClickListener() {          
+	            @Override
+	            public void onClick(View view) {
+	                if (AmbilWarnaDialog.this.listener != null) {
+	                    AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, context.getSharedPreferences("LastColors", 0).getInt("lastcolor4", Color.BLACK), false);
+	                    dialog.dismiss();
+	                }
+	            }
+	        });
+	        
 
 		viewHue.setOnTouchListener(new View.OnTouchListener() {
 			@Override
@@ -176,7 +220,7 @@ public class AmbilWarnaDialog {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				if (AmbilWarnaDialog.this.listener != null) {
-					AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, getColor());
+					AmbilWarnaDialog.this.listener.onOk(AmbilWarnaDialog.this, getColor(), true);
 				}
 			}
 		})
@@ -243,6 +287,13 @@ public class AmbilWarnaDialog {
 
 		this.viewAlphaCursor.setLayoutParams(layoutParams);
 	}
+
+	protected void setRecentColors(Context cont){    
+        viewLastColor1.setBackgroundColor(cont.getSharedPreferences("LastColors", 0).getInt("lastcolor1", Color.BLACK));
+        viewLastColor2.setBackgroundColor(cont.getSharedPreferences("LastColors", 0).getInt("lastcolor2", Color.BLACK));
+        viewLastColor3.setBackgroundColor(cont.getSharedPreferences("LastColors", 0).getInt("lastcolor3", Color.BLACK));
+        viewLastColor4.setBackgroundColor(cont.getSharedPreferences("LastColors", 0).getInt("lastcolor4", Color.BLACK));
+    }
 
 	private int getColor() {
 		final int argb = Color.HSVToColor(currentColorHsv);

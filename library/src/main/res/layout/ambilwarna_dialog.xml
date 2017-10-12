@@ -117,6 +117,54 @@
                     android:background="#aaf" />
             </FrameLayout>
         </LinearLayout>
+         <LinearLayout
+            android:id="@+id/recent_colors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ambilwarna_state"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/ambilwarna_spacer"
+            android:gravity="center"
+            android:orientation="horizontal" 
+            android:weightSum="4"
+            android:layout_marginLeft="@dimen/ambilwarna_spacer"
+            android:layout_marginRight="@dimen/ambilwarna_spacer">
+            
+             <View
+                    android:id="@+id/lastcolor1"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="#aaf" 
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/ambilwarna_spacer"
+                    android:layout_marginRight="@dimen/ambilwarna_spacer"/>
+              <View
+                    android:id="@+id/lastcolor2"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="#aaf"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/ambilwarna_spacer"
+                    android:layout_marginRight="@dimen/ambilwarna_spacer"/>
+               <View
+                    android:id="@+id/lastcolor3"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="#aaf"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/ambilwarna_spacer"
+                    android:layout_marginRight="@dimen/ambilwarna_spacer"/>
+                <View
+                    android:id="@+id/lastcolor4"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:background="#aaf"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/ambilwarna_spacer"
+                    android:layout_marginRight="@dimen/ambilwarna_spacer" />
+            
+            
+        </LinearLayout>
     </RelativeLayout>
 
 </FrameLayout>
